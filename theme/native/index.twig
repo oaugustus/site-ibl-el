@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html class="no-js">
+    {% include '_head.twig' %}
+    <body>
+        <div class="body header-style4">
+            {% include '_header.twig' %}
+                {% include '_slider.twig' %}
+                <div class="main" role="main">
+                    <div id="content" class="content full">
+                        <div class="container">
+                            <div class="row">
+                                {% include '_sessao_home.twig' %}
+                            </div>
+                            <div class="row">
+                                {% include '_eventos_home.twig' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% include '_scripts.twig' %}
+        </div>
+    </body>
+</html>

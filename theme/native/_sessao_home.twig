@@ -1,0 +1,12 @@
+{% setcontent secoes = 'secoeshome' where {ativo: '1'}  limit 3 orderby 'ordem' %}
+<div class="featured-blocks clearfix">
+    {% for secao in secoes %}
+        <div class="col-md-4 col-sm-4 featured-block">
+            <a href="{{ secao.url }}" class="img-thumbnail">
+                <img src="{{ thumbnail(secao.imagem, 305, 209) }}" alt="staff">
+                <strong>{{ secao.titulo }}</strong>
+                <span class="more">ler</span>
+            </a>
+        </div>
+    {% endfor %}
+</div>

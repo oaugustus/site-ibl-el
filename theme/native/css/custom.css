@@ -1,0 +1,16 @@
+/* ==================================================
+   Add your own style here. This file will overide properties described in any other css file.
+================================================== */
+.flex-caption {
+    width: 100%;
+    padding: 2%;
+    padding-left: 150px;
+    left: 0;
+    bottom: -15px;
+    background: rgba(0,0,0,.4);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+    font-size: 20px;
+    line-height: 18px;
+    position: absolute;
+}

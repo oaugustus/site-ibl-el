@@ -1,0 +1,68 @@
+{% setcontent eventos = 'eventos' where {dia_inicio: '>now'}  limit 3 orderby 'dia_inicio' %}
+
+<div class="col-md-8 col-sm-6">
+    <!-- Events Listing -->
+    <div class="listing events-listing">
+        <header class="listing-header">
+            <h3>Próximos eventos</h3>
+        </header>
+        <section class="listing-cont">
+            <ul>
+                {% for evento in eventos %}
+                    {% set mes =  evento.dia_inicio | date("m") %}
+                    {% set diasemana =  evento.dia_inicio | date("N") %}
+                    <li class="item event-item">
+                        <div class="event-date">
+                            <span class="date">{{ evento.dia_inicio | date("d")}}</span> <span class="month">
+                                {% if mes == '02' %}
+                                    FEV
+                                {% elseif mes == '04' %}
+                                    ABR
+                                {% elseif mes == '05' %}
+                                    MAI
+                                {% elseif mes == '08' %}
+                                    AGO
+                                {% elseif mes == '09' %}
+                                    SET
+                                {% elseif mes == '10' %}
+                                    OUT
+                                {% elseif mes == '12' %}
+                                    DEZ
+                                {% else%}
+                                    {{ evento.dia_inicio | date('M') }}
+                                {% endif %}
+
+                            </span>
+                        </div>
+                        <div class="event-detail">
+                            <h4><a href="single-event.html">{{ evento.nome }}</a></h4>
+                            <span class="event-dayntime meta-data">
+                                {#{% if diasemana == '1' %}#}
+                                    {#Segunda#}
+                                {#{% elseif diasemana == '2' %}#}
+                                    {#Terça#}
+                                {#{% elseif diasemana == '3' %}#}
+                                    {#Quarta#}
+                                {#{% elseif diasemana == '4' %}#}
+                                    {#Quinta#}
+                                {#{% elseif diasemana == '5' %}#}
+                                    {#Sexta#}
+                                {#{% elseif diasemana == '6' %}#}
+                                    {#Sábado#}
+                                {#{% else diasemana == '7' %}#}
+                                    {#Domingo#}
+                                {#{% endif %} |#}
+
+                                {{ evento.dia_inicio | date("H:i") }}
+                            </span> </div>
+                        <div class="to-event-url">
+                            <div><a href="single-event.html" class="btn btn-default btn-sm">Detalhes</a></div>
+                        </div>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </section>
+    </div>
+    <div class="spacer-30"></div>
+</div>
